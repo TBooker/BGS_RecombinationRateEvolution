@@ -1,0 +1,71 @@
+// Keywords: tree-sequence recording, tree sequence recording
+
+initialize() {
+
+//	defineConstant("REP", 1);  // simulation replicate
+	defineConstant("N", 1000);  // pop size
+	defineConstant("L", 1e7);    // total chromosome length
+	defineConstant("r", 2.08e-5);  // the recombination rate within hotspots
+	defineConstant("hotSpotWidth", 10000);  // the recombination rate within hotspots
+	
+	initializeTreeSeq();
+	initializeMutationRate(1e-7);
+
+	numHotspots = rpois(1,60);
+	starts = sample(0:(L-hotSpotWidth), numHotspots);
+	ends = starts + 9999;
+	rec_breaks = sort(c(ends,starts,L-1));
+	rec_rates = c(rep( c(r/100, r ), numHotspots),0);
+
+
+	initializeMutationType("m2", 0.5, "g", -0.1, 0.1);
+	initializeGenomicElementType("g2", m2, 1.0);
+	initializeRecombinationRate( rec_rates, rec_breaks);
+	initializeGenomicElement(g2, 0, L-1);
+}
+1 {
+	sim.addSubpop("p1", N);
+
+	
+	cat("Recombination hotspot locations:\n");
+	cat(sim.chromosome.recombinationEndPositions);
+	writeFile(paste(c("replicate_", REP,".recombinationHotspots.txt"), sep=""), c("regime_1", asString(sim.chromosome.recombinationEndPositions)) );	
+
+}
+1:18001 {
+}
+15000 {
+	sim.treeSeqOutput("recombination_regime_1."+REP+".trees");
+}
+
+15001 late() {
+// Re-draw the recombination hotspots
+
+	numHotspots = rpois(1,60);
+	starts = sample(0:(L-hotSpotWidth), numHotspots);
+	ends = starts + 9999;
+	rec_breaks = sort(c(ends,starts,L-1));
+	rec_rates = c(rep( c(r/100, r ), numHotspots),0);
+	
+	sim.chromosome.setRecombinationRate(rec_rates,  rec_breaks);
+
+	cat("New recombination hotspot locations:\n");
+	cat(sim.chromosome.recombinationEndPositions);
+
+	writeFile(paste(c("replicate_", REP,".recombinationHotspots.txt"), sep=""), c("regime_2", asString(sim.chromosome.recombinationEndPositions)), append = T);	
+
+//	sim.chromosome.setRecombinationRate(rev(c(1e-8, 2e-8, 3e-8, 4e-7, 5e-7, 6e-7, 7e-7, 8e-7, 9e-7, 10e-7)), (seq(1,10)*1000000)-1);
+}
+
+15001:18000 late(){
+	if (sim.generation % 500 == 0){
+				sim.treeSeqOutput("recombination_regime_2.gen"+sim.generation +".rep"+REP+".trees");
+
+		}
+	}
+//s1 10 late() {
+//	
+//}
+
+// Part II of this recipe, which is a Python script, may be found in
+// the Recipes archive downloadable at https://messerlab.org/slim/
