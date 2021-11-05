@@ -17,8 +17,7 @@ mkdir simple_map_constant_s0.01
 
 cd simple_map_constant_s0.01
 
-parallel "slim -d REP={1} -d R={2} -d s=-0.01 ../configs/recombinationRat
-eEvolution.singleElement.slim" ::: $(seq 1 100) ::: 0.1 1 10
+parallel "slim -d REP={1} -d R={2} -d s=-0.01 ../configs/recombinationRateEvolution.singleElement.slim" ::: $(seq 1 100) ::: 0.1 1 10
 cd ../
 
 python bin/parseTreesSimple.py --tree simple_map_constant_s0.01/ --output summary_simple_map_constant_s0.01.csv
@@ -28,8 +27,7 @@ tszip simple_map_constant_s0.01/*trees
 
 mkdir simple_map_constant_s0.001
 cd simple_map_constant_s0.001
-parallel "slim -d REP={1} -d R={2} -d s=-0.001 ../configs/recombinationRat
-eEvolution.singleElement.slim" ::: $(seq 1 100) ::: 0.1 1 10
+parallel "slim -d REP={1} -d R={2} -d s=-0.001 ../configs/recombinationRateEvolution.singleElement.slim" ::: $(seq 1 100) ::: 0.1 1 10
 cd ../
 python bin/parseTreesSimple.py --tree simple_map_constant_s0.001/ --output summary_simple_map_constant_s0.001.csv
 

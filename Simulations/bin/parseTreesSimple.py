@@ -2,6 +2,7 @@ import msprime, allel, tskit, pyslim ## Special packages
 import argparse, glob, random ## Standard packages
 import pandas as pd ## Pandas
 import numpy as np ## Numpy
+from multiprocessing import Pool
 
 
 ## A script to take the tree sequence files from either MSprime or SLiM and calculate summary statistics
@@ -45,6 +46,53 @@ def read_slim(slim_file, keepMuts = False, mutation_rate = 0.5e-6, sampleSize = 
 		 keep=False))
 		return ts_added
 
+def analyse_tree(argsFromPool):
+
+	treeSeq = argsFromPool[0]
+
+	r_regime_1 = argsFromPool[1][0]
+
+	print(treeSeq)
+
+	nameString = treeSeq.split("/")[-1]
+
+	gen = int( nameString.split('.')[1][3:] )
+
+	if len( nameString.split('.') ) == 7:
+		R = float(nameString.split('.')[4] + "." + nameString.split('.')[5] )
+	elif len( nameString.split('.') ) == 6:
+		R = float(nameString.split('.')[4] )
+	rep = nameString.split('.')[2][3:]
+
+	r_regime_2 = [r_regime_1[0]*R]
+
+	mutated_tree = read_slim( treeSeq , keepMuts = False)
+
+	pos_vector = [int(v.position)+1 for v in mutated_tree.variants()]
+
+	msprime_genotype_matrix = mutated_tree.genotype_matrix()
+
+# Convert msprime's haplotype matrix into genotypes by randomly merging chromosomes
+	haplotype_array = allel.HaplotypeArray( msprime_genotype_matrix )
+	genotype_array = haplotype_array.to_genotypes(ploidy=2)
+	ac = genotype_array.count_alleles()
+	windowWidth = 5000
+
+	pi, windows, n_bases, counts = allel.windowed_diversity(pos_vector, ac, size=windowWidth, start=1, stop=25000)
+
+	window_locations = windows.sum(axis = 1)/2
+
+	if gen >100001:
+		r = r_regime_2
+	else:
+		r = r_regime_1
+
+	dat =  pd.DataFrame( [pi, window_locations] ).transpose()
+	dat["gen"] = gen
+	dat["rep"] = rep
+	dat["R"] = R
+
+	return(dat)
 
 def main():
 	parser = argparse.ArgumentParser(description="")
@@ -61,56 +109,22 @@ def main():
 		type = str,
 		help = "Give the name of the output file")
 
-
+	parser.add_argument("--nProc",
+		required = False,
+		dest = "nProc",
+		type = int,
+		help = "Give the number of threads for this program [5]")
 	args = parser.parse_args()
 
 	output = []
+	rRegime1 = [5e-7]
 
+	arg_set = [ [tree, [rRegime1]] for tree in glob.glob(args.tree + "/*trees") ]
 
-	r_regime_1 = [5e-7]
 ## Do this for SLiM trees
-	for tree in glob.glob(args.tree + "/*trees"):
 
-		nameString = tree.split("/")[-1]
-
-		gen = int( nameString.split('.')[1][3:] )
-
-		if len( nameString.split('.') ) == 7:
-			R = float(nameString.split('.')[4] + "." + nameString.split('.')[5] )
-		elif len( nameString.split('.') ) == 6:
-			R = float(nameString.split('.')[4] )
-		rep = nameString.split('.')[2][3:]
-
-		print( rep, gen, R)
-		r_regime_2 = [5e-7*R]
-
-		mutated_tree = read_slim( tree , keepMuts = False)
-
-		pos_vector = [int(v.position)+1 for v in mutated_tree.variants()]
-		print(str(len(pos_vector)) + "\n")
-
-		msprime_genotype_matrix = mutated_tree.genotype_matrix()
-# Convert msprime's haplotype matrix into genotypes by randomly merging chromosomes
-		haplotype_array = allel.HaplotypeArray( msprime_genotype_matrix )
-		genotype_array = haplotype_array.to_genotypes(ploidy=2)
-		ac = genotype_array.count_alleles()
-		windowWidth = 5000
-
-		pi, windows, n_bases, counts = allel.windowed_diversity(pos_vector, ac, size=windowWidth, start=1, stop=25000)
-
-		window_locations = windows.sum(axis = 1)/2
-
-		if gen >15000:
-			r = r_regime_2
-		else:
-			r = r_regime_1
-
-		print(pi)
-		dat =  pd.DataFrame( [pi, window_locations] ).transpose()
-		dat["gen"] = gen
-		dat["rep"] = rep
-		dat["R"] = R
-		output.append(dat)
+	with Pool(args.nProc) as p:
+		output= p.map(analyse_tree, arg_set)
 	pd.concat(output).to_csv(args.output, index = False)
 
 
