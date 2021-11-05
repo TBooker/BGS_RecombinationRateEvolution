@@ -1,11 +1,11 @@
 rm(list = ls())
 
 ## Make a plot showing the recombination rate landscapes before and after the change for the broad-scale and fine scale simulations
-setwd("~/work/Mouse_BGS_RecombinationRateEvolution/Plots")
+setwd("~/UBC/Mouse_BGS_RecombinationRateEvolution/Plots")
 
 ## Hotspots 
 # Read in the file of starts and stops from a single simulation rep
-hotspots <- read.table("../Simulations/configs/test/replicate_1.recombinationHotspots.txt")
+hotspots <- read.table("../Simulations/hotspotMap/hs_10000_randomNumber/replicate_7.recombinationHotspots.txt")
 # Get the index for where the regime changes in the file
 initial_break <- (1:nrow(hotspots))[hotspots$V1 == "regime_2"]
 # Extract the vector corresponding to the first set of hotspots
@@ -70,7 +70,7 @@ broadScale_maps <- rbind(broadScale_before, broadScale_after)
 
 broadScale_plot <- ggplot(data = broadScale_maps, aes(x = position/1e6, y = rates*4*5000))+
   geom_line()+
-  facet_grid(source~.)+
+  facet_wrap(source~., ncol = 1)
   scale_x_continuous("Position in Genome (Mbp)",
                      breaks = 0:10)+
   scale_y_log10(expression("Recombination Rate (4"*italic(N[e]*"r")*")"),
@@ -80,3 +80,7 @@ broadScale_plot <- ggplot(data = broadScale_maps, aes(x = position/1e6, y = rate
 
 
 library(ggpubr)
+
+ggarrange( broadScale_plot,
+           hotspot_plot,
+           ncol = 2)
