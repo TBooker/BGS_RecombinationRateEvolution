@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: writeUp_shortFormat.aux
+The style file: genetics.bst
+Database file #1: BGS_recRate_references.bib
+You've used 27 entries,
+            2762 wiz_defined-function locations,
+            808 strings with 12257 characters,
+and the built_in function-call counts, 19262 in all, are:
+= -- 1651
+> -- 1614
+< -- 6
++ -- 614
+- -- 498
+* -- 2128
+:= -- 3263
+add.period$ -- 54
+call.type$ -- 27
+change.case$ -- 326
+chr.to.int$ -- 27
+cite$ -- 27
+duplicate$ -- 676
+empty$ -- 985
+format.name$ -- 533
+if$ -- 3708
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 27
+newline$ -- 84
+num.names$ -- 108
+pop$ -- 278
+preamble$ -- 1
+purify$ -- 299
+quote$ -- 0
+skip$ -- 498
+stack$ -- 0
+substring$ -- 900
+swap$ -- 264
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 243
+warning$ -- 0
+while$ -- 121
+width$ -- 0
+write$ -- 299

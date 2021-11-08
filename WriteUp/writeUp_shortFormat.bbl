@@ -1,0 +1,172 @@
+\begin{thebibliography}{27}
+
+\bibitem[{Baker {\em et~al.\/}}(2017){Baker, Schumer, Haba, Bashkirova,
+  Holland, Rosenthal, {\rm and} Przeworski}]{Baker2017}
+{Baker, Z., M.~Schumer, Y.~Haba, L.~Bashkirova, C.~Holland, {\em et~al.\/}},
+  2017 {Repeated losses of PRDM9-directed recombination despite the
+  conservation of PRDM9 across vertebrates}. eLife {\bf 6}.
+
+\bibitem[{Baudat {\em et~al.\/}}(2010){Baudat, Buard, Grey, Fledel-Alon, Ober,
+  Przeworski, Coop, {\rm and} de~Massy}]{RN269}
+{Baudat, F., J.~Buard, C.~Grey, A.~Fledel-Alon, C.~Ober, {\em et~al.\/}}, 2010
+  {PRDM9 Is a Major Determinant of Meiotic Recombination Hotspots in Humans and
+  Mice}. Science {\bf 327}: 836--840.
+
+\bibitem[{Campos {\em et~al.\/}}(2017){Campos, Zhao, {\rm and}
+  Charlesworth}]{RN323}
+{Campos, J.~L., L.~Zhao, {\rm and} B.~Charlesworth}, 2017 {Estimating the
+  parameters of background selection and selective sweeps in Drosophila in the
+  presence of gene conversion}. Proceedings of the National Academy of Sciences
+  {\bf 114}: E4762--E4771.
+
+\bibitem[{Charlesworth {\em et~al.\/}}(1993){Charlesworth, Morgan, {\rm and}
+  Charlesworth}]{RN132}
+{Charlesworth, B., M.~T. Morgan, {\rm and} D.~Charlesworth}, 1993 {The effect
+  of deleterious mutations on neutral molecular variation}. Genetics {\bf 134}:
+  1289--1303.
+
+\bibitem[{Chm{\'{a}}tal {\em et~al.\/}}(2014){Chm{\'{a}}tal, Gabriel,
+  Mitsainas, Mart{\'{i}}nez-Vargas, Ventura, Searle, Schultz, {\rm and}
+  Lampson}]{Chmatal2014}
+{Chm{\'{a}}tal, L., S.~I. Gabriel, G.~P. Mitsainas, J.~Mart{\'{i}}nez-Vargas,
+  J.~Ventura, {\em et~al.\/}}, 2014 {Centromere Strength Provides the Cell
+  Biological Basis for Meiotic Drive and Karyotype Evolution in Mice}. Current
+  Biology {\bf 24}: 2295--2300.
+
+\bibitem[{Cicconardi {\em et~al.\/}}(2021){Cicconardi, Lewis, Martin, Reed,
+  Danko, {\rm and} Montgomery}]{Cicconardi2021}
+{Cicconardi, F., J.~J. Lewis, S.~H. Martin, R.~D. Reed, C.~G. Danko, {\em
+  et~al.\/}}, 2021 {Chromosome Fusion Affects Genetic Diversity and
+  Evolutionary Turnover of Functional Loci but Consistently Depends on
+  Chromosome Size}. Molecular Biology and Evolution {\bf 38}: 4449--4462.
+
+\bibitem[{Comeron}(2017)]{Comeron2017-jc}
+{Comeron, J.~M.}, 2017 {Background selection as null hypothesis in population
+  genomics: insights and challenges from Drosophila studies}. Philos Trans R
+  Soc Lond B Biol Sci {\bf 372}.
+
+\bibitem[{Cutter {\rm and} Payseur}(2013)]{RN117}
+{Cutter, A.~D. {\rm and} B.~A. Payseur}, 2013 {Genomic signatures of selection
+  at linked sites: unifying the disparity among species}. Nat Rev Genet {\bf
+  14}: 262--274.
+
+\bibitem[{Cvijovi{\'{c}} {\em et~al.\/}}(2018){Cvijovi{\'{c}}, Good, {\rm and}
+  Desai}]{Cvijovic2018}
+{Cvijovi{\'{c}}, I., B.~H. Good, {\rm and} M.~M. Desai}, 2018 {The Effect of
+  Strong Purifying Selection on Genetic Diversity}. Genetics {\bf 209}:
+  1235--1278.
+
+\bibitem[{Elyashiv {\em et~al.\/}}(2016){Elyashiv, Sattath, Hu, Strutsovsky,
+  McVicker, Andolfatto, Coop, {\rm and} Sella}]{RN274}
+{Elyashiv, E., S.~Sattath, T.~T. Hu, A.~Strutsovsky, G.~McVicker, {\em
+  et~al.\/}}, 2016 {A genomic map of the effects of linked selection in
+  Drosophila}. PLoS Genetics {\bf 12}: e1006130.
+
+\bibitem[{Good {\em et~al.\/}}(2014){Good, Walczak, Neher, {\rm and}
+  Desai}]{Good2014}
+{Good, B.~H., A.~M. Walczak, R.~A. Neher, {\rm and} M.~M. Desai}, 2014 {Genetic
+  Diversity in the Interference Selection Limit}. PLoS Genetics {\bf 10}.
+
+\bibitem[{Haller {\em et~al.\/}}(2019){Haller, Galloway, Kelleher, Messer, {\rm
+  and} Ralph}]{Haller2019-za}
+{Haller, B.~C., J.~Galloway, J.~Kelleher, P.~W. Messer, {\rm and} P.~L. Ralph},
+  2019 {Tree-sequence recording in {SLiM} opens new horizons for forward-time
+  simulation of whole genomes}. Molecular Ecology Resources {\bf 19}: 552--566.
+
+\bibitem[{Haller {\rm and} Messer}(2019)]{Haller2019-jv}
+{Haller, B.~C. {\rm and} P.~W. Messer}, 2019 {SLiM 3: Forward Genetic
+  Simulations Beyond the Wright-Fisher Model}. Molecular Biology and Evolution
+  {\bf 36}: 632--637.
+
+\bibitem[{Johri {\em et~al.\/}}(2020){Johri, Charlesworth, {\rm and}
+  Jensen}]{Johri2020}
+{Johri, P., B.~Charlesworth, {\rm and} J.~D. Jensen}, 2020 {Toward an
+  evolutionarily appropriate null model: Jointly inferring demography and
+  purifying selection}. Genetics {\bf 215}: 173--192.
+
+\bibitem[{Kartje {\em et~al.\/}}(2020){Kartje, Jing, {\rm and}
+  Payseur}]{Kartje2020}
+{Kartje, M.~E., P.~Jing, {\rm and} B.~A. Payseur}, 2020 {Weak Correlation
+  between Nucleotide Variation and Recombination Rate across the House Mouse
+  Genome}. Genome Biology and Evolution {\bf 12}: 293--299.
+
+\bibitem[{Kelleher {\em et~al.\/}}(2016){Kelleher, Etheridge, {\rm and}
+  McVean}]{Kelleher2016-zz}
+{Kelleher, J., A.~M. Etheridge, {\rm and} G.~McVean}, 2016 {Efficient
+  Coalescent Simulation and Genealogical Analysis for Large Sample Sizes}. PLOS
+  Computational Biology {\bf 12}: e1004842.
+
+\bibitem[{Nam {\em et~al.\/}}(2017){Nam, Munch, Mailund, Nater, Greminger,
+  Kr{\"{u}}tzen, Marqu{\`{e}}s-Bonet, {\rm and} Schierup}]{Nam2017}
+{Nam, K., K.~Munch, T.~Mailund, A.~Nater, M.~P. Greminger, {\em et~al.\/}},
+  2017 {Evidence that the rate of strong selective sweeps increases with
+  population size in the great apes}. Proceedings of the National Academy of
+  Sciences of the United States of America {\bf 114}: 1613--1618.
+
+\bibitem[{Nordborg {\em et~al.\/}}(1996){Nordborg, Charlesworth, {\rm and}
+  Charlesworth}]{RN157}
+{Nordborg, M., B.~Charlesworth, {\rm and} D.~Charlesworth}, 1996 {The effect of
+  recombination on background selection}. Genetical Research {\bf 67}:
+  159--174.
+
+\bibitem[{Oliver {\em et~al.\/}}(2009){Oliver, Goodstadt, Bayes, Birtle, Roach,
+  Phadnis, Beatson, Lunter, Malik, {\rm and} Ponting}]{RN329}
+{Oliver, P.~L., L.~Goodstadt, J.~J. Bayes, Z.~Birtle, K.~C. Roach, {\em
+  et~al.\/}}, 2009 {Accelerated evolution of the Prdm9 speciation gene across
+  diverse metazoan taxa}. PLoS Genetics {\bf 5}: e1000753.
+
+\bibitem[{Paigen {\em et~al.\/}}(2008){Paigen, Szatkiewicz, Sawyer, Leahy,
+  Parvanov, Ng, Graber, Broman, {\rm and} Petkov}]{RN263}
+{Paigen, K., J.~P. Szatkiewicz, K.~Sawyer, N.~Leahy, E.~D. Parvanov, {\em
+  et~al.\/}}, 2008 {The recombinational anatomy of a mouse chromosome}. PLoS
+  Genetics {\bf 4}: e1000119.
+
+\bibitem[{Pool {\rm and} Nielsen}(2009)]{Pool2007}
+{Pool, J.~E. {\rm and} R.~Nielsen}, 2009 Correction for pool and nielsen
+  (2007). Evolution {\bf 63}: 1671--1671.
+
+\bibitem[{Smagulova {\em et~al.\/}}(2016){Smagulova, Brick, Yongmei,
+  Camerini-Otero, {\rm and} Petukhova}]{RN249}
+{Smagulova, F., K.~Brick, P.~Yongmei, R.~D. Camerini-Otero, {\rm and} G.~V.
+  Petukhova}, 2016 {The evolutionary turnover of recombination hotspots
+  contributes to speciation in mice}. Genes \& Development {\bf 30}: 277--280.
+
+\bibitem[{Spence {\rm and} Song}(2019)]{Spence2019}
+{Spence, J.~P. {\rm and} Y.~S. Song}, 2019 {Inference and analysis of
+  population-specific fine-scale recombination maps across 26 diverse human
+  populations}. Science Advances {\bf 5}.
+
+\bibitem[{Sun {\em et~al.\/}}(2019){Sun, Rowan, Flood, Brandt, Fuss, Hancock,
+  Michelmore, Huettel, {\rm and} Schneeberger}]{Sun2019}
+{Sun, H., B.~A. Rowan, P.~J. Flood, R.~Brandt, J.~Fuss, {\em et~al.\/}}, 2019
+  {Linked-read sequencing of gametes allows efficient genome-wide analysis of
+  meiotic recombination}. Nature Communications {\bf 10}: 1--9.
+
+\bibitem[{Thybert {\em et~al.\/}}(2018){Thybert, Roller, Navarro, Fiddes,
+  Streeter, Feig, Martin-Galvez, Kolmogorov, Janou{\v{s}}ek, Akanni, Aken,
+  Aldridge, Chakrapani, Chow, Clarke, Cummins, Doran, Dunn, Goodstadt, Howe,
+  Howell, Josselin, Karn, Laukaitis, Jingtao, Martin, Muffato, Nachtweide,
+  Quail, Sisu, Stanke, Stefflova, {Van Oosterhout}, Veyrunes, Ward, Yang,
+  Yazdanifar, Zadissa, Adams, Brazma, Gerstein, Paten, Pham, Keane, Odom, {\rm
+  and} Flicek}]{Thybert2018}
+{Thybert, D., M.~Roller, F.~C. Navarro, I.~Fiddes, I.~Streeter, {\em
+  et~al.\/}}, 2018 {Repeat associated mechanisms of genome evolution and
+  function revealed by the Mus caroli and Mus pahari genomes}. Genome Research
+  {\bf 28}: 448--459.
+
+\bibitem[{Tigano {\em et~al.\/}}(2021){Tigano, Khan, Omer, Weisz, Dudchenko,
+  Multani, Pathak, Behringer, Aiden, Fisher, {\rm and} MacManes}]{Tigano2021}
+{Tigano, A., R.~Khan, A.~D. Omer, D.~Weisz, O.~Dudchenko, {\em et~al.\/}}, 2021
+  {Chromosome size affects sequence divergence between species through the
+  interplay of recombination and selection}. bioRxiv p. 2021.01.15.426870.
+
+\bibitem[{Vara {\em et~al.\/}}(2021){Vara, Paytuv{\'{i}}-Gallart, Cuartero,
+  {\'{A}}lvarez-Gonz{\'{a}}lez, Mar{\'{i}}n-Gual, Garcia, Florit-Sabater,
+  Capilla, Sanch{\'{e}}z-Guill{\'{e}}n, Sarrate, {Aiese Cigliano}, Sanseverino,
+  Searle, Ventura, Marti-Renom, {Le Dily}, {\rm and} Ruiz-Herrera}]{Vara2021}
+{Vara, C., A.~Paytuv{\'{i}}-Gallart, Y.~Cuartero,
+  L.~{\'{A}}lvarez-Gonz{\'{a}}lez, L.~Mar{\'{i}}n-Gual, {\em et~al.\/}}, 2021
+  {The impact of chromosomal fusions on 3D genome folding and recombination in
+  the germ line}. Nature Communications 2021 12:1 {\bf 12}: 1--17.
+
+\end{thebibliography}
