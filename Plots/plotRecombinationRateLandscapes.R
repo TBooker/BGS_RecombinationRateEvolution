@@ -45,12 +45,16 @@ melted_hotspots$source <- factor(melted_hotspots$source,
 
 hotspot_plot <- ggplot(data = melted_hotspots, aes(x = value/1e6, y = rates*4*5000))+
   geom_line()+
-  facet_grid(source~.)+
-  scale_x_continuous("Position in Genome (Mbp)")+
+  facet_wrap(source~., ncol =1 )+
+  scale_x_continuous("Position in Genome (Mbp)",
+                     breaks = 0:10)+
   scale_y_log10(expression("Recombination Rate (4"*italic(N[e]*"r")*")"),
                 limit = c(0.0005,0.5))+
-  theme_bw()
-
+  theme_bw()+
+  theme(
+    strip.background.x = element_blank(),
+    strip.text.x = element_text( size = 10)
+  )
 
 # There, plotted the hotspot map nicely in ggplot2
 
@@ -68,19 +72,35 @@ broadScale_after <- data.frame(position = sort(c(starts, ends)),
 
 broadScale_maps <- rbind(broadScale_before, broadScale_after)
 
+broadScale_maps$source <- factor(broadScale_maps$source, 
+                                 levels = c("Before","After"))
+
+
 broadScale_plot <- ggplot(data = broadScale_maps, aes(x = position/1e6, y = rates*4*5000))+
   geom_line()+
-  facet_wrap(source~., ncol = 1)
+  facet_wrap(source~., ncol = 1)+
   scale_x_continuous("Position in Genome (Mbp)",
                      breaks = 0:10)+
   scale_y_log10(expression("Recombination Rate (4"*italic(N[e]*"r")*")"),
                 limit = c(0.0005,0.5))+
-  theme_bw()
+  theme_bw()+
+  theme(
+    strip.background.x = element_blank(),
+    strip.text.x = element_text( size = 10)
+  )
 
 
 
 library(ggpubr)
 
-ggarrange( broadScale_plot,
+map_schematic <- ggarrange( broadScale_plot,
            hotspot_plot,
-           ncol = 2)
+           ncol = 2,
+           labels = "AUTO", 
+           align = "h")
+pdf("recombinationMapDiagram.pdf", width = 10, height = 6)
+print(map_schematic)
+dev.off()  
+
+recRates <- c(2.5e-7, 3e-7, 4e-7, 4.5e-7, 5e-7, 5e-7, 5.5e-7, 6e-7, 7e-7, 7.5e-7) *(4.164/5)
+sum(recRates*(10^6))
