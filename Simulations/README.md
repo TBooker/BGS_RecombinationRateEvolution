@@ -10,8 +10,11 @@ I ran three different models.
 3. Fine-scale variation in recombination rates due to recombination hotspots - the locations of hotspots changes in the simulation
 
 
-## Simulate simple change in recombination rate
+## 1. Simulate simple change in recombination rate
 
+The following code will run a set of simulations for model 1 listed above.
+
+### Constant effect mutations
 ```
 mkdir simple_map_constant_s0.01
 
@@ -25,13 +28,53 @@ python bin/parseTreesSimple.py --tree simple_map_constant_s0.01/ --output summar
 tszip simple_map_constant_s0.01/*trees
 
 
-mkdir simple_map_constant_s0.001
-cd simple_map_constant_s0.001
-parallel "slim -d REP={1} -d R={2} -d s=-0.001 ../configs/recombinationRateEvolution.singleElement.slim" ::: $(seq 1 100) ::: 0.1 1 10
+mkdir simple_map_constant_s0.0002
+cd simple_map_constant_s0.0002
+parallel "slim -d REP={1} -d R={2} -d s=-0.0002 ../configs/recombinationRateEvolution.singleElement.slim" ::: $(seq 21 100) ::: 0.1 1 10
 cd ../
-python bin/parseTreesSimple.py --tree simple_map_constant_s0.001/ --output summary_simple_map_constant_s0.001.csv
+python bin/parseTreesSimple.py --tree simple_map_constant_s0.0002/ --output summary_simple_map_constant_s0.0002.csv
 
-tszip simple_map_constant_s0.001/*trees
+tszip simple_map_constant_s0.0002/*trees
 
 
 ```
+
+### Mutational effects drawn from a gamma distribution
+```
+mkdir simple_map_DFE
+
+cd simple_map_DFE
+
+# Run many simulation replicates in parallel
+parallel "slim -d REP={1} -d R={2} ../configs/recombinationRateEvolution.singleElement.DFE.slim" ::: $(seq 1 100) ::: 0.1 1 10
+cd ../
+
+# Summarise the results of the simulations
+
+python bin/parseTreesSimple.py --tree simple_map_DFE/ --output summary_simple_map_DFE.csv
+
+tszip simple_map_DFE/*trees
+
+
+```
+
+
+## 3. Simulate shift in the recombination rate landscape - hotspot map
+```
+mkdir hotspot_map
+cd hotspot_map
+# Run 20 simulation replicates in parallel
+parallel "slim -d REP={1} ../configs/recombinationRateEvolution.hotspots.slim" ::: $(seq 3 20)
+cd ../
+```
+
+
+
+
+## 3. Simulate shift in the recombination rate landscape - hotspot map
+```
+mkdir broadscale_map
+cd broadscale_map
+# Run 20 simulation replicates in parallel
+parallel "slim -d REP={1} ../configs/recombinationRateEvolution.broadScale_range0.3.slim" ::: $(seq 3 20)
+cd ../

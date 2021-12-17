@@ -1,0 +1,53 @@
+// set up a simple neutral simulation
+initialize() {
+
+//	defineConstant("REP", 1);  // simulation replicate
+//	defineConstant("R", 0.9);  // simulation replicate
+//	defineConstant("s", -0.01);  // simulation replicate
+	defineConstant("N", 5000);  // pop size
+
+	initializeTreeSeq();
+
+	initializeMutationRate(5e-7);
+
+//  m2 mutation type: deleterious
+	initializeMutationType("m2", 0.5, "f", s);
+
+	initializeGenomicElementType("g1", m2, 1.0);
+
+// uniform chromosome of length 100 kb with uniform recombination
+
+	initializeGenomicElement(g1, 10000, 14999);
+
+	initializeRecombinationRate(5e-7, 24999);
+}
+
+1:140000 {
+if (sim.generation % 10 == 0){
+
+	print(sim.generation);
+	}
+}
+
+// create a population of 5000 individuals
+1 {
+	sim.addSubpop("p1", N);
+}
+
+80000 {
+	sim.treeSeqOutput("SimpleComparison.gen"+sim.generation +".rep"+REP+".R."+R+".trees");
+}
+
+80001 late() {
+// Scale the recombination rate by R
+
+	sim.chromosome.setRecombinationRate(5e-7*R, 24999);
+
+}
+
+80001:140001 late(){
+	if (sim.generation % 2500 == 0){
+		sim.treeSeqOutput("SimpleComparison.gen"+sim.generation +".rep"+REP+".R."+R+".trees");
+
+		}
+	}
